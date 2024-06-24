@@ -32,13 +32,13 @@ class rating {
   final dynamic rate;
   final dynamic count;
   rating({
-    required this.rate,
-    required this.count,
+    this.rate,
+    this.count,
   });
   factory rating.fromJson(JsonData) {
     return rating(
-      rate: JsonData['rate'],
-      count: JsonData['count'],
+      rate: '0',
+      count: '0',
     );
   }
 }

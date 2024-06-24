@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import '/services/update_prodect.dart';
 import 'package:flutter/material.dart';
 import 'services/get_products_api.dart';
 import 'model/product.dart';
@@ -26,13 +26,14 @@ class MYapp extends StatelessWidget {
             title: Text('Product'),
           ),
           body: GestureDetector(
-            onTap: () {
-              Add_product().add_product(
+            onTap: () async {
+              await UpdateProdect().updateProdect(
                   title: 'test product',
                   category: 'electronic',
                   price: '13.5',
                   image: 'https://i.pravatar.cc',
-                  description: 'lorem ipsum set');
+                  description: 'lorem ipsum set',
+                  id: 1);
             },
             child: ListView.builder(
               itemCount: products.length,
