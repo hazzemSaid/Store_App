@@ -1,13 +1,13 @@
-import 'dart:ffi';
-
 class product {
   final dynamic id;
+  final dynamic price;
   final dynamic title;
   final dynamic description;
   final dynamic image;
   final dynamic category;
   final dynamic rate;
   product({
+    required this.price,
     required this.id,
     required this.title,
     required this.description,
@@ -17,6 +17,7 @@ class product {
   });
   factory product.fromJson(JsonData) {
     return product(
+      price: JsonData['price'],
       id: JsonData['id'],
       title: JsonData['title'],
       description: JsonData['description'],
