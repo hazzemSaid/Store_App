@@ -8,6 +8,7 @@ import 'services/get_catogary.dart';
 import 'services/get_product_by_category.dart';
 import 'services/add_product.dart';
 import '/pages/home_page.dart';
+import '/pages/update_product.dart';
 
 void main() async {
   runApp(MYapp());

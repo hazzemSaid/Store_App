@@ -1,4 +1,5 @@
 import 'package:appstore/model/product.dart';
+import 'package:appstore/pages/update_product.dart';
 import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -55,7 +56,16 @@ class Home_Page extends StatelessWidget {
                         ),
                         itemBuilder: (context, index) {
                           product item = snapshot.data![index];
-                          return customecard(itme: item);
+                          return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => UpdateProduct(
+                                              id_item: item.id,
+                                            )));
+                              },
+                              child: customecard(itme: item));
                         }),
                   ),
                 ],
