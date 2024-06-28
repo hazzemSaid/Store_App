@@ -12,6 +12,8 @@ class UpdateProdect {
       required String image,
       required int id,
       required String category}) async {
+    print(
+        'title: $title, description: $description, price: $price, image: $image, id: $id, category: $category');
     Map<String, dynamic> jsonResponse = await API().PUT(body: {
       'title': title,
       'description': description,

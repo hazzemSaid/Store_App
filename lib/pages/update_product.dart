@@ -7,12 +7,10 @@ import '/services/update_prodect.dart';
 
 class UpdateProduct extends StatelessWidget {
   static String id = 'updatepage';
-  String? title;
-  double? price;
-  String? description;
-  String? image;
-  final int id_item;
-  UpdateProduct({required this.id_item});
+  product? item;
+  String? title, description, image;
+  dynamic price;
+  UpdateProduct({required this.item});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,19 +63,17 @@ class UpdateProduct extends StatelessWidget {
           custombutton(
               type: "uplade",
               onTap: () async {
-                print(title);
-                print(price);
-                print(description);
-                print(image);
-                print(id_item);
-                product item = await UpdateProdect().updateProdect(
-                    title: title!,
-                    description: description!,
-                    price: price.toString(),
-                    image: image!,
-                    id: id_item,
-                    category: "1");
-                print(item);
+                try {
+                  product items = await UpdateProdect().updateProdect(
+                      title: title!,
+                      description: description!,
+                      price: price.toString(),
+                      image: image!,
+                      id: item!.id,
+                      category: item!.category);
+                } catch (e) {
+                  print(e);
+                }
               }),
         ],
       ),
